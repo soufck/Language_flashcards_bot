@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 bot = telebot.TeleBot("6988140564:AAFbjveyolIdsj3GQ5hk8bh0wQzSzM84KqM")
-
+#  @FastFlashCardsBot
 
 @bot.message_handler(commands=["start"])
 def start(massage):
@@ -44,7 +44,16 @@ def dicts(massage):
         btn3 = types.KeyboardButton("Закончить")
         group.add(btn1, btn2)
         group.add(btn3)
-        bot.send_message(massage.chat.id, "......", reply_markup=group) # тут должны быть слова из алгортма по работе с бд
+        bot.send_message(massage.chat.id, "тут должны быть слова из алгортма по работе с бд + сообщение"
+                                          "с названием словаря", reply_markup=group)
+
+
+    elif (massage.text == "Верно"):
+        bot.send_message(massage.chat.id, "следующее слово")
+
+
+    elif (massage.text == "Неверно"):
+        bot.send_message(massage.chat.id, "следующее слово")
 
 
     elif (massage.text == "Назад"):
@@ -63,7 +72,7 @@ def dicts(massage):
         btn5 = types.KeyboardButton("Начать")
         group.add(btn5)
         group.add(btn3, btn4)
-        bot.send_message(massage.chat.id, "......", reply_markup=group)  # тут должен быть процент выполнения
+        bot.send_message(massage.chat.id, "тут должен быть процент выполнения", reply_markup=group)
 
 
     elif (massage.text == "Посмотрел"):
@@ -80,7 +89,7 @@ def dicts(massage):
         group = types.ReplyKeyboardMarkup(resize_keyboard=True)
         btn1 = types.KeyboardButton("Посмотрел")
         group.add(btn1)
-        bot.send_message(massage.chat.id, "Нажмите начать для начала тренировки", reply_markup=group)
+        bot.send_message(massage.chat.id, "статистика: % выполнения и топ самыйх плохо отвечаемых слов", reply_markup=group)
 
     # Словарь
     # # кнопка для создания словаря
